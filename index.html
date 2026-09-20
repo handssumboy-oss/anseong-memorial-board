@@ -197,23 +197,54 @@ footer p{margin:.3rem 0;letter-spacing:.02em}
   <div class="wrap">
     <svg class="mum" viewBox="0 0 120 120" aria-hidden="true">
       <defs>
-        <ellipse id="pa" cx="0" cy="-36" rx="6.5" ry="22" fill="var(--petal)" opacity=".55"/>
-        <ellipse id="pb" cx="0" cy="-25" rx="5.5" ry="16" fill="var(--petal)" opacity=".75"/>
-        <ellipse id="pc" cx="0" cy="-14" rx="4.5" ry="10" fill="var(--petal)" opacity=".95"/>
+        <!-- 끝이 살짝 벌어진 국화 꽃잎. 안쪽(-9)에서 바깥으로 뻗는다. -->
+        <path id="p1" d="M0-9C-4.4-17-5-31-2.6-43 -1.5-48.5 1.5-48.5 2.6-43 5-31 4.4-17 0-9Z"/>
+        <path id="p2" d="M0-8C-3.8-15-4.3-26-2.2-35.5 -1.2-40 1.2-40 2.2-35.5 4.3-26 3.8-15 0-8Z"/>
+        <path id="p3" d="M0-7C-3.1-12.5-3.5-21-1.8-28.5 -1-32 1-32 1.8-28.5 3.5-21 3.1-12.5 0-7Z"/>
+        <path id="p4" d="M0-5C-2.4-9-2.7-15.5-1.4-20.5 -.8-23 .8-23 1.4-20.5 2.7-15.5 2.4-9 0-5Z"/>
+        <radialGradient id="core">
+          <stop offset="0%" stop-color="var(--flame)" stop-opacity=".95"/>
+          <stop offset="100%" stop-color="var(--flame)" stop-opacity=".25"/>
+        </radialGradient>
       </defs>
-      <g transform="translate(60,60)">
-        <use href="#pa" transform="rotate(0)"/><use href="#pa" transform="rotate(30)"/><use href="#pa" transform="rotate(60)"/>
-        <use href="#pa" transform="rotate(90)"/><use href="#pa" transform="rotate(120)"/><use href="#pa" transform="rotate(150)"/>
-        <use href="#pa" transform="rotate(180)"/><use href="#pa" transform="rotate(210)"/><use href="#pa" transform="rotate(240)"/>
-        <use href="#pa" transform="rotate(270)"/><use href="#pa" transform="rotate(300)"/><use href="#pa" transform="rotate(330)"/>
-        <use href="#pb" transform="rotate(18)"/><use href="#pb" transform="rotate(54)"/><use href="#pb" transform="rotate(90)"/>
-        <use href="#pb" transform="rotate(126)"/><use href="#pb" transform="rotate(162)"/><use href="#pb" transform="rotate(198)"/>
-        <use href="#pb" transform="rotate(234)"/><use href="#pb" transform="rotate(270)"/><use href="#pb" transform="rotate(306)"/>
-        <use href="#pb" transform="rotate(342)"/>
-        <use href="#pc" transform="rotate(22)"/><use href="#pc" transform="rotate(67)"/><use href="#pc" transform="rotate(112)"/>
-        <use href="#pc" transform="rotate(157)"/><use href="#pc" transform="rotate(202)"/><use href="#pc" transform="rotate(247)"/>
-        <use href="#pc" transform="rotate(292)"/><use href="#pc" transform="rotate(337)"/>
-        <circle r="7" fill="var(--flame)" opacity=".6"/>
+      <g transform="translate(60,60)" fill="var(--petal)">
+        <g opacity=".34">
+          <use href="#p1" transform="rotate(0)"/><use href="#p1" transform="rotate(20)"/>
+          <use href="#p1" transform="rotate(40)"/><use href="#p1" transform="rotate(60)"/>
+          <use href="#p1" transform="rotate(80)"/><use href="#p1" transform="rotate(100)"/>
+          <use href="#p1" transform="rotate(120)"/><use href="#p1" transform="rotate(140)"/>
+          <use href="#p1" transform="rotate(160)"/><use href="#p1" transform="rotate(180)"/>
+          <use href="#p1" transform="rotate(200)"/><use href="#p1" transform="rotate(220)"/>
+          <use href="#p1" transform="rotate(240)"/><use href="#p1" transform="rotate(260)"/>
+          <use href="#p1" transform="rotate(280)"/><use href="#p1" transform="rotate(300)"/>
+          <use href="#p1" transform="rotate(320)"/><use href="#p1" transform="rotate(340)"/>
+        </g>
+        <g opacity=".52">
+          <use href="#p2" transform="rotate(10)"/><use href="#p2" transform="rotate(30)"/>
+          <use href="#p2" transform="rotate(50)"/><use href="#p2" transform="rotate(70)"/>
+          <use href="#p2" transform="rotate(90)"/><use href="#p2" transform="rotate(110)"/>
+          <use href="#p2" transform="rotate(130)"/><use href="#p2" transform="rotate(150)"/>
+          <use href="#p2" transform="rotate(170)"/><use href="#p2" transform="rotate(190)"/>
+          <use href="#p2" transform="rotate(210)"/><use href="#p2" transform="rotate(230)"/>
+          <use href="#p2" transform="rotate(250)"/><use href="#p2" transform="rotate(270)"/>
+          <use href="#p2" transform="rotate(290)"/><use href="#p2" transform="rotate(310)"/>
+          <use href="#p2" transform="rotate(330)"/><use href="#p2" transform="rotate(350)"/>
+        </g>
+        <g opacity=".72">
+          <use href="#p3" transform="rotate(5)"/><use href="#p3" transform="rotate(35)"/>
+          <use href="#p3" transform="rotate(65)"/><use href="#p3" transform="rotate(95)"/>
+          <use href="#p3" transform="rotate(125)"/><use href="#p3" transform="rotate(155)"/>
+          <use href="#p3" transform="rotate(185)"/><use href="#p3" transform="rotate(215)"/>
+          <use href="#p3" transform="rotate(245)"/><use href="#p3" transform="rotate(275)"/>
+          <use href="#p3" transform="rotate(305)"/><use href="#p3" transform="rotate(335)"/>
+        </g>
+        <g opacity=".92">
+          <use href="#p4" transform="rotate(20)"/><use href="#p4" transform="rotate(65)"/>
+          <use href="#p4" transform="rotate(110)"/><use href="#p4" transform="rotate(155)"/>
+          <use href="#p4" transform="rotate(200)"/><use href="#p4" transform="rotate(245)"/>
+          <use href="#p4" transform="rotate(290)"/><use href="#p4" transform="rotate(335)"/>
+        </g>
+        <circle r="6.5" fill="url(#core)"/>
       </g>
     </svg>
 
