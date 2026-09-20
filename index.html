@@ -111,6 +111,20 @@ h2::after{
 }
 p{word-break:keep-all}
 
+.names{list-style:none;margin:0;padding:0}
+.names li{padding:1.9rem 0;text-align:center;position:relative}
+.names li:first-child{padding-top:.3rem}
+.names li:last-child{padding-bottom:.3rem}
+.names li + li::before{
+  content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:3rem;height:1px;background:var(--rule);
+}
+.names .who{
+  font-family:"Nanum Myeongjo",serif;font-size:1.5rem;line-height:1.5;
+  margin:0;letter-spacing:.02em;
+}
+.names .role{font-size:.86rem;color:var(--soft);margin:.55rem 0 0;letter-spacing:.02em}
+
 .eulogy{
   font-family:"Nanum Myeongjo",serif;font-size:1.04rem;line-height:2.2;
   padding-left:1.6rem;position:relative;
@@ -214,6 +228,23 @@ footer p{margin:.3rem 0;letter-spacing:.02em}
 </div>
 
 <main>
+
+  <section aria-labelledby="h-names">
+    <div class="wrap">
+      <h2 id="h-names">기억하는 두 분</h2>
+      <!-- 유가족 동의를 받아 성함을 게재한다. 미성년 고인의 학교·학년·사진은 싣지 않는다. -->
+      <ul class="names">
+        <li>
+          <p class="who">故 이현정 님</p>
+          <p class="role">어머니 · 나눔의 녹색장터 자원봉사자</p>
+        </li>
+        <li>
+          <p class="who">故 양성모 님</p>
+          <p class="role">아들 · 나눔의 녹색장터 자원봉사자</p>
+        </li>
+      </ul>
+    </div>
+  </section>
 
   <section aria-labelledby="h-eulogy">
     <div class="wrap">
