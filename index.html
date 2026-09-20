@@ -45,12 +45,18 @@ body{
   width:min(30rem,82%);height:1px;
   background:linear-gradient(90deg,transparent,var(--rule) 20%,var(--rule) 80%,transparent);
 }
-.period p{margin:0;font-size:1rem;color:var(--ink);letter-spacing:.02em;word-break:keep-all}
+.period p{
+  margin:0;font-size:1rem;color:var(--ink);letter-spacing:.02em;
+  word-break:keep-all;text-wrap:balance;
+}
 .period span{
   display:block;color:var(--flame);font-size:.74rem;letter-spacing:.14em;
   margin:0 0 .6rem;
 }
-.period .sub{margin:.85rem 0 0;font-size:.83rem;color:var(--soft);line-height:1.85}
+.period .sub{
+  max-width:28rem;margin:.9rem auto 0;
+  font-size:.83rem;color:var(--soft);line-height:1.9;
+}
 .period .sub strong{color:var(--ink);font-weight:400}
 
 /* 제단 */
