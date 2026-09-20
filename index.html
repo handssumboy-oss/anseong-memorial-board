@@ -452,7 +452,9 @@ form.addEventListener("submit", async (e) => {
     statusEl.textContent = "등록하지 못했습니다. 잠시 후 다시 시도해 주세요.";
   } else {
     form.reset();
-    statusEl.textContent = "글이 접수되었습니다. 확인 후 게시됩니다.";
+    statusEl.textContent = "글이 등록되었습니다.";
+    await loadTributes();
+    listEl.firstElementChild?.scrollIntoView({ behavior: "smooth", block: "center" });
   }
 
   sendBtn.disabled = false;
