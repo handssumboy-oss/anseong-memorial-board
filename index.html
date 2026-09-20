@@ -38,25 +38,50 @@ body{
 
 /* 제단 */
 .altar{
-  background:radial-gradient(ellipse 60% 50% at 50% 30%, rgba(203,174,120,.09), transparent 70%), var(--deep);
-  padding:5rem 0 4rem;text-align:center;position:relative;
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 26%, rgba(203,174,120,.13), transparent 72%),
+    linear-gradient(180deg, var(--deep) 0%, var(--deep) 62%, var(--night) 100%);
+  padding:6rem 0 4.5rem;text-align:center;position:relative;overflow:hidden;
 }
-.mum{display:block;margin:0 auto 2.5rem;width:110px;height:110px}
+.altar::after{
+  content:"";position:absolute;left:50%;bottom:0;transform:translateX(-50%);
+  width:min(22rem,70%);height:1px;
+  background:linear-gradient(90deg,transparent,var(--rule) 22%,var(--flame) 50%,var(--rule) 78%,transparent);
+  opacity:.5;
+}
+.mum{
+  display:block;margin:0 auto 2.75rem;width:116px;height:116px;
+  filter:drop-shadow(0 0 22px rgba(203,174,120,.22));
+}
 .altar h1{
   font-family:"Nanum Myeongjo",serif;font-weight:400;
-  font-size:clamp(1.5rem,5.6vw,2rem);line-height:1.7;
-  margin:0 0 1rem;word-break:keep-all;
+  font-size:clamp(1.55rem,5.8vw,2.1rem);line-height:1.75;letter-spacing:-.01em;
+  margin:0 0 1.15rem;word-break:keep-all;
 }
-.when{font-size:.9rem;color:var(--soft);margin:0 0 3rem}
+.when{
+  font-size:.86rem;color:var(--soft);margin:0 0 3.25rem;
+  letter-spacing:.06em;
+}
 
-.count{font-family:"Nanum Myeongjo",serif;font-size:2.4rem;line-height:1.2;color:var(--flame);margin:0}
-.count-label{font-size:.85rem;color:var(--soft);margin:.4rem 0 2rem}
+.count{
+  font-family:"Nanum Myeongjo",serif;font-size:2.7rem;line-height:1.15;
+  color:var(--flame);margin:0;letter-spacing:.01em;
+  text-shadow:0 0 28px rgba(203,174,120,.24);
+}
+.count-label{font-size:.84rem;color:var(--soft);margin:.45rem 0 2.1rem;letter-spacing:.03em}
 .offer{
   font:inherit;font-size:.95rem;color:var(--night);background:var(--petal);
-  border:0;border-radius:999px;padding:.8rem 2.6rem;cursor:pointer;
+  border:0;border-radius:999px;padding:.85rem 2.8rem;cursor:pointer;
+  box-shadow:0 2px 18px rgba(242,240,235,.14);
+  transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
 }
-.offer[disabled]{background:transparent;color:var(--soft);box-shadow:inset 0 0 0 1px var(--rule);cursor:default}
-.thanks{font-size:.85rem;color:var(--soft);margin:1rem 0 0;min-height:1.4em}
+.offer:hover{background:#fff;box-shadow:0 4px 26px rgba(242,240,235,.24);transform:translateY(-1px)}
+.offer:active{transform:translateY(0)}
+.offer[disabled]{
+  background:transparent;color:var(--soft);cursor:default;transform:none;
+  box-shadow:inset 0 0 0 1px var(--rule);
+}
+.thanks{font-size:.85rem;color:var(--soft);margin:1.1rem 0 0;min-height:1.4em}
 
 /* 헌화 모션: 한 번만, 사용자 동작에 대한 응답 */
 .rise{position:absolute;left:50%;bottom:7rem;width:18px;height:18px;margin-left:-9px;pointer-events:none}
@@ -71,46 +96,99 @@ body{
 }
 
 /* 본문 */
-section{padding:4rem 0;border-top:1px solid var(--rule)}
-h2{font-family:"Nanum Myeongjo",serif;font-weight:400;font-size:1.1rem;letter-spacing:.03em;margin:0 0 2.25rem}
+section{padding:4.5rem 0;position:relative}
+section + section::before{
+  content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:min(30rem,82%);height:1px;
+  background:linear-gradient(90deg,transparent,var(--rule) 20%,var(--rule) 80%,transparent);
+}
+h2{
+  font-family:"Nanum Myeongjo",serif;font-weight:400;font-size:1.12rem;
+  letter-spacing:.05em;margin:0 0 2.4rem;padding-bottom:.9rem;position:relative;
+}
+h2::after{
+  content:"";position:absolute;left:0;bottom:0;width:1.6rem;height:1px;background:var(--flame);opacity:.75;
+}
 p{word-break:keep-all}
 
-
-.eulogy{font-family:"Nanum Myeongjo",serif;font-size:1.02rem;line-height:2.15;border-left:1px solid var(--flame);padding-left:1.4rem}
-.eulogy p{margin:0 0 1.3rem}
+.eulogy{
+  font-family:"Nanum Myeongjo",serif;font-size:1.04rem;line-height:2.2;
+  padding-left:1.6rem;position:relative;
+}
+.eulogy::before{
+  content:"";position:absolute;left:0;top:.4em;bottom:.4em;width:1px;
+  background:linear-gradient(180deg,var(--flame),rgba(203,174,120,.15));
+}
+.eulogy p{margin:0 0 1.35rem}
 .eulogy p:last-child{margin-bottom:0}
-.sign{font-family:"Noto Sans KR",sans-serif;font-size:.85rem;color:var(--soft)}
+.sign{font-family:"Noto Sans KR",sans-serif;font-size:.85rem;color:var(--soft);letter-spacing:.02em}
 
 
-label{display:block;font-size:.82rem;color:var(--soft);margin-bottom:.5rem}
+label{display:block;font-size:.82rem;color:var(--soft);margin-bottom:.55rem;letter-spacing:.03em}
 input,textarea{
   width:100%;font:inherit;font-size:1rem;color:var(--ink);background:var(--field);
-  border:1px solid var(--rule);border-radius:3px;padding:.7rem .85rem;margin-bottom:1.4rem;
+  border:1px solid var(--rule);border-radius:6px;padding:.8rem .95rem;margin-bottom:1.5rem;
+  transition:border-color .18s ease, background .18s ease;
 }
+input:hover,textarea:hover{border-color:#3a3f43}
+input:focus,textarea:focus{background:#22272a;border-color:rgba(203,174,120,.55)}
 textarea{min-height:7.5rem;resize:vertical;line-height:1.8}
 :focus-visible{outline:2px solid var(--flame);outline-offset:2px}
-.send{font:inherit;font-size:.95rem;color:var(--night);background:var(--petal);border:0;border-radius:3px;padding:.7rem 2rem;cursor:pointer}
-.send[disabled]{opacity:.45;cursor:default}
-.status{font-size:.87rem;color:var(--soft);margin:1rem 0 0;min-height:1.4em}
-.guide{font-size:.82rem;color:var(--soft);margin:0 0 2rem;padding-left:.9rem;border-left:1px solid var(--rule)}
+.send{
+  font:inherit;font-size:.95rem;color:var(--night);background:var(--petal);
+  border:0;border-radius:6px;padding:.78rem 2.2rem;cursor:pointer;
+  transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+.send:hover{background:#fff;box-shadow:0 3px 18px rgba(242,240,235,.16);transform:translateY(-1px)}
+.send:active{transform:translateY(0)}
+.send[disabled]{opacity:.4;cursor:default;transform:none;box-shadow:none}
+.status{font-size:.87rem;color:var(--soft);margin:1.1rem 0 0;min-height:1.4em}
+.guide{
+  font-size:.83rem;color:var(--soft);margin:0 0 2.2rem;padding:.15rem 0 .15rem 1rem;
+  border-left:1px solid rgba(203,174,120,.45);line-height:1.85;
+}
 
-.shrine p{margin:0 0 1.2rem}
-.shrine .org{font-size:.82rem;color:var(--soft);margin-bottom:1.6rem}
-.shrine .close{font-family:"Nanum Myeongjo",serif;color:var(--flame);margin:2rem 0 0}
-.detail{margin:2rem 0 0;padding:1.5rem;background:var(--field);border-radius:3px;font-size:.95rem}
-.detail dt{color:var(--soft);font-size:.82rem;margin-top:1.1rem}
-.detail dt:first-child{margin-top:0}
-.detail dd{margin:.25rem 0 0}
-.detail a{color:var(--ink)}
+.shrine p{margin:0 0 1.25rem}
+.shrine .org{font-size:.82rem;color:var(--flame);margin-bottom:1.7rem;letter-spacing:.05em}
+.shrine .close{
+  font-family:"Nanum Myeongjo",serif;font-size:1.05rem;color:var(--flame);
+  margin:2.3rem 0 0;text-align:center;letter-spacing:.02em;
+}
+.detail{
+  margin:2.2rem 0 0;padding:1.7rem 1.6rem;font-size:.95rem;
+  background:linear-gradient(180deg,#20252a,var(--field));
+  border:1px solid var(--rule);border-radius:8px;
+  display:grid;grid-template-columns:5.5rem 1fr;gap:.55rem 1.1rem;align-items:baseline;
+}
+.detail dt{color:var(--soft);font-size:.82rem;letter-spacing:.03em}
+.detail dd{margin:0;line-height:1.7}
+.detail a{color:var(--ink);text-decoration:none;border-bottom:1px solid rgba(203,174,120,.5)}
+.detail a:hover{color:var(--flame)}
+@media (max-width:26rem){
+  .detail{grid-template-columns:1fr;gap:.2rem}
+  .detail dd{margin:0 0 .9rem}
+  .detail dd:last-child{margin-bottom:0}
+}
 
-.messages{list-style:none;margin:3rem 0 0;padding:0}
-.messages li{padding:1.5rem 0;border-top:1px solid var(--rule)}
-.messages .body{margin:0;white-space:pre-wrap;word-break:break-word;font-size:.97rem}
-.messages .meta{font-size:.8rem;color:var(--soft);margin:.6rem 0 0}
-.empty{font-size:.9rem;color:var(--soft);margin:2.5rem 0 0}
+.messages{list-style:none;margin:3rem 0 0;padding:0;display:grid;gap:.9rem}
+.messages li{
+  padding:1.35rem 1.4rem;background:rgba(30,34,37,.55);
+  border:1px solid var(--rule);border-left:2px solid rgba(203,174,120,.45);
+  border-radius:6px;
+}
+.messages .body{margin:0;white-space:pre-wrap;word-break:break-word;font-size:.97rem;line-height:1.95}
+.messages .meta{font-size:.79rem;color:var(--soft);margin:.75rem 0 0;letter-spacing:.02em}
+.empty{font-size:.9rem;color:var(--soft);margin:2.5rem 0 0;text-align:center}
 
-footer{border-top:1px solid var(--rule);padding:2.5rem 0 4.5rem;font-size:.82rem;color:var(--soft);text-align:center}
-footer p{margin:.25rem 0}
+footer{
+  padding:3rem 0 4.5rem;font-size:.82rem;color:var(--soft);text-align:center;position:relative;
+}
+footer::before{
+  content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:min(30rem,82%);height:1px;
+  background:linear-gradient(90deg,transparent,var(--rule) 20%,var(--rule) 80%,transparent);
+}
+footer p{margin:.3rem 0;letter-spacing:.02em}
 </style>
 </head>
 <body>
@@ -195,8 +273,8 @@ footer p{margin:.25rem 0}
         <p>자원봉사 단체장님들께서는 바쁘시더라도 삼삼오오 분향소에 방문하시어 고인을 추모하고 애도의 마음을 함께해 주시기 바랍니다.</p>
 
         <dl class="detail">
-          <dt>운영기간</dt><dd>9월 21일 ~ 9월 23일</dd>
-          <dt>운영시간</dt><dd>9시 ~ 21시</dd>
+          <dt>운영기간</dt><dd>9월 21일(월) ~ 9월 23일(수)</dd>
+          <dt>운영시간</dt><dd>21일 11:00 ~ 21:00<br>22·23일 09:00 ~ 21:00</dd>
           <dt>운영장소</dt><dd>내혜홀광장</dd>
           <dt>문의</dt><dd><a href="tel:031-674-1365">031-674-1365</a></dd>
         </dl>
