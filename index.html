@@ -50,8 +50,8 @@ body{
   opacity:.5;
 }
 .mum{
-  display:block;margin:0 auto 2.75rem;width:116px;height:116px;
-  filter:drop-shadow(0 0 22px rgba(203,174,120,.22));
+  display:block;margin:0 auto 2.5rem;width:148px;height:148px;
+  filter:drop-shadow(0 0 26px rgba(203,174,120,.18));
 }
 .altar h1{
   font-family:"Nanum Myeongjo",serif;font-weight:400;
@@ -195,58 +195,7 @@ footer p{margin:.3rem 0;letter-spacing:.02em}
 
 <div class="altar">
   <div class="wrap">
-    <svg class="mum" viewBox="0 0 120 120" aria-hidden="true">
-      <defs>
-        <!-- 끝이 살짝 벌어진 국화 꽃잎. 안쪽(-9)에서 바깥으로 뻗는다. -->
-        <path id="p1" d="M0-9C-4.4-17-5-31-2.6-43 -1.5-48.5 1.5-48.5 2.6-43 5-31 4.4-17 0-9Z"/>
-        <path id="p2" d="M0-8C-3.8-15-4.3-26-2.2-35.5 -1.2-40 1.2-40 2.2-35.5 4.3-26 3.8-15 0-8Z"/>
-        <path id="p3" d="M0-7C-3.1-12.5-3.5-21-1.8-28.5 -1-32 1-32 1.8-28.5 3.5-21 3.1-12.5 0-7Z"/>
-        <path id="p4" d="M0-5C-2.4-9-2.7-15.5-1.4-20.5 -.8-23 .8-23 1.4-20.5 2.7-15.5 2.4-9 0-5Z"/>
-        <radialGradient id="core">
-          <stop offset="0%" stop-color="var(--flame)" stop-opacity=".95"/>
-          <stop offset="100%" stop-color="var(--flame)" stop-opacity=".25"/>
-        </radialGradient>
-      </defs>
-      <g transform="translate(60,60)" fill="var(--petal)">
-        <g opacity=".34">
-          <use href="#p1" transform="rotate(0)"/><use href="#p1" transform="rotate(20)"/>
-          <use href="#p1" transform="rotate(40)"/><use href="#p1" transform="rotate(60)"/>
-          <use href="#p1" transform="rotate(80)"/><use href="#p1" transform="rotate(100)"/>
-          <use href="#p1" transform="rotate(120)"/><use href="#p1" transform="rotate(140)"/>
-          <use href="#p1" transform="rotate(160)"/><use href="#p1" transform="rotate(180)"/>
-          <use href="#p1" transform="rotate(200)"/><use href="#p1" transform="rotate(220)"/>
-          <use href="#p1" transform="rotate(240)"/><use href="#p1" transform="rotate(260)"/>
-          <use href="#p1" transform="rotate(280)"/><use href="#p1" transform="rotate(300)"/>
-          <use href="#p1" transform="rotate(320)"/><use href="#p1" transform="rotate(340)"/>
-        </g>
-        <g opacity=".52">
-          <use href="#p2" transform="rotate(10)"/><use href="#p2" transform="rotate(30)"/>
-          <use href="#p2" transform="rotate(50)"/><use href="#p2" transform="rotate(70)"/>
-          <use href="#p2" transform="rotate(90)"/><use href="#p2" transform="rotate(110)"/>
-          <use href="#p2" transform="rotate(130)"/><use href="#p2" transform="rotate(150)"/>
-          <use href="#p2" transform="rotate(170)"/><use href="#p2" transform="rotate(190)"/>
-          <use href="#p2" transform="rotate(210)"/><use href="#p2" transform="rotate(230)"/>
-          <use href="#p2" transform="rotate(250)"/><use href="#p2" transform="rotate(270)"/>
-          <use href="#p2" transform="rotate(290)"/><use href="#p2" transform="rotate(310)"/>
-          <use href="#p2" transform="rotate(330)"/><use href="#p2" transform="rotate(350)"/>
-        </g>
-        <g opacity=".72">
-          <use href="#p3" transform="rotate(5)"/><use href="#p3" transform="rotate(35)"/>
-          <use href="#p3" transform="rotate(65)"/><use href="#p3" transform="rotate(95)"/>
-          <use href="#p3" transform="rotate(125)"/><use href="#p3" transform="rotate(155)"/>
-          <use href="#p3" transform="rotate(185)"/><use href="#p3" transform="rotate(215)"/>
-          <use href="#p3" transform="rotate(245)"/><use href="#p3" transform="rotate(275)"/>
-          <use href="#p3" transform="rotate(305)"/><use href="#p3" transform="rotate(335)"/>
-        </g>
-        <g opacity=".92">
-          <use href="#p4" transform="rotate(20)"/><use href="#p4" transform="rotate(65)"/>
-          <use href="#p4" transform="rotate(110)"/><use href="#p4" transform="rotate(155)"/>
-          <use href="#p4" transform="rotate(200)"/><use href="#p4" transform="rotate(245)"/>
-          <use href="#p4" transform="rotate(290)"/><use href="#p4" transform="rotate(335)"/>
-        </g>
-        <circle r="6.5" fill="url(#core)"/>
-      </g>
-    </svg>
+    <img class="mum" src="mum.png" width="420" height="420" alt="" aria-hidden="true">
 
     <h1>나눔의 자리를 지키던 분들을<br>기억합니다</h1>
     <p class="when">2026년 9월 19일 · 경기 안성</p>
