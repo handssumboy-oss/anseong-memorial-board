@@ -12,5 +12,12 @@ from pg_policies
 where schemaname = 'public' and tablename = 'tributes'
 order by policyname;
 
--- 헌화(flowers)는 건드리지 않는다. 버튼이 페이지에 남아 있으므로
--- 함께 닫으려면 페이지에서 버튼을 먼저 내려야 한다.
+-- 헌화도 함께 닫는다. 페이지에서 헌화하기 버튼을 내린 뒤에 실행한다.
+-- 조회 정책(flowers_select_anon)은 그대로 두어 누적 수는 계속 표시된다.
+drop policy if exists flowers_insert_anon on public.flowers;
+
+-- 확인 — flowers 에 INSERT 정책이 남아 있지 않아야 한다
+select tablename, policyname, cmd, roles
+from pg_policies
+where schemaname = 'public' and tablename = 'flowers'
+order by policyname;

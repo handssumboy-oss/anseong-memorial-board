@@ -101,7 +101,7 @@ body{
   color:var(--flame);margin:0;letter-spacing:.01em;
   text-shadow:0 0 28px rgba(203,174,120,.24);
 }
-.count-label{font-size:.84rem;color:var(--soft);margin:.45rem 0 2.1rem;letter-spacing:.03em}
+.count-label{font-size:.84rem;color:var(--soft);margin:.45rem 0 0;letter-spacing:.03em}
 .offer{
   font:inherit;font-size:.95rem;color:var(--night);background:var(--petal);
   border:0;border-radius:999px;padding:.85rem 2.8rem;cursor:pointer;
@@ -255,8 +255,6 @@ footer p{margin:.3rem 0;letter-spacing:.02em}
 
     <p class="count" id="count">—</p>
     <p class="count-label">분이 헌화하셨습니다</p>
-    <button class="offer" id="offer" type="button">헌화하기</button>
-    <p class="thanks" id="thanks" role="status" aria-live="polite"></p>
   </div>
 </div>
 
@@ -325,51 +323,17 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
 import { SUPABASE_URL, SUPABASE_ANON_KEY } from "./config.js";
 
 const sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-const OFFERED = "memorial.offered";
 
-const offerBtn = document.getElementById("offer");
-const countEl  = document.getElementById("count");
-const thanksEl = document.getElementById("thanks");
-const altar    = document.querySelector(".altar");
-const listEl   = document.getElementById("messages");
-const emptyEl  = document.getElementById("empty");
+const countEl = document.getElementById("count");
+const listEl  = document.getElementById("messages");
+const emptyEl = document.getElementById("empty");
 
-// 헌화
+// 헌화 — 운영 종료 후에는 누적 집계만 표시한다
 
 async function loadCount() {
   const { count, error } = await sb.from("flowers").select("*", { count: "exact", head: true });
   countEl.textContent = error ? "\u2014" : Number(count || 0).toLocaleString("ko-KR");
 }
-
-function markOffered() {
-  offerBtn.disabled = true;
-  offerBtn.textContent = "헌화를 마쳤습니다";
-  thanksEl.textContent = "마음 감사합니다.";
-}
-
-function bloom() {
-  const el = document.createElement("div");
-  el.className = "rise";
-  el.innerHTML = '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="var(--petal)" opacity=".9"/></svg>';
-  altar.appendChild(el);
-  setTimeout(() => el.remove(), 2800);
-}
-
-offerBtn.addEventListener("click", async () => {
-  offerBtn.disabled = true;
-  bloom();
-
-  const { error } = await sb.from("flowers").insert({});
-  if (error) {
-    offerBtn.disabled = false;
-    thanksEl.textContent = "잠시 후 다시 시도해 주세요.";
-    return;
-  }
-
-  try { localStorage.setItem(OFFERED, "1"); } catch (e) {}
-  await loadCount();
-  markOffered();
-});
 
 // 추모의 글
 
@@ -410,7 +374,6 @@ async function loadTributes() {
   render(error ? [] : (data || []));
 }
 
-try { if (localStorage.getItem(OFFERED)) markOffered(); } catch (e) {}
 loadCount();
 loadTributes();
 </script>
